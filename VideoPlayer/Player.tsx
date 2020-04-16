@@ -1,10 +1,11 @@
 import 'fullscreen-polyfill';
-import React, { FC, ReactElement, useEffect, useRef, useState } from 'react';
+import React, { FC, ReactElement, RefObject, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 export type MandatoryAttributes<T> = Record<string, any> & T;
 export type PlayerProps = MandatoryAttributes<{
-  src: string;
+  src?: string;
+  handle?: RefObject<any>;
 }>;
 
 export interface ControlProps {
@@ -27,8 +28,8 @@ export type ControlComponent<T extends keyof ControlProps> = FC<{
   controlProps?: MandatoryAttributes<Pick<ControlProps, T>>;
 }>;
 
-export const Player: FC<PlayerProps> = ({ children, src, ...rest }) => {
-  const playback = useRef<any>();
+export const Player: FC<PlayerProps> = ({ children, src, handle, ...rest }) => {
+  const playback = handle || useRef<any>();
   const container = useRef<any>();
 
   const [duration, saveDuration] = useState(0);

@@ -17,11 +17,11 @@ Thanks to detaching the controls via the interface, you can modify the provided 
 
 The controls available are:
 
-- ⏯️ play/pause toggle
-- 🔉 volume control (mute/unmute on click, slider appears on hover, then you can control the volume with mouse wheel or by clicking the slider)
-- 🖥 fullscreen toggle
-- 🕐 time display (clicking on it you can switch between elapsed/remaining)
-- ☄️ progress bar (with seeking function)
+- ⏯️ play/pause toggle **PlayToggle**
+- 🔉 volume control **Volume** (mute/unmute on click, slider appears on hover, then you can control the volume with mouse wheel or by clicking the slider)
+- 🖥 fullscreen toggle **FullScreenToggle**
+- 🕐 time display (clicking on it you can switch between elapsed/remaining) **Time**
+- ☄️ progress bar (with seeking function) **ProgressBar**
 
 ## 👨‍💻 Implementation
 
@@ -57,11 +57,11 @@ As `styled-components` are used, you can change the basic colors by using a them
 If that is not enough (it might not be), feel free to create your own controls just the way you like 'em.
 
 ### Custom controls
-To implement your own controls, simply create component that accepts `controlProps: ControlProps` as its prop. This will get passed to the component via the player itself, you just create the component and pass it as a child to the Player. The interface is defined as following:
+To implement your own controls, simply create a component that accepts `controlProps: ControlProps` as its prop. This will get passed to the component via the player itself, you just create the component and pass it as a child to the Player. The interface is defined as following:
 ```
 interface ControlProps {
   duration: number; // in seconds
-  elapsed: number; // in seconds
+  elapsed: number; // in seconds 
   fullscreen: boolean;
   isPlaying: boolean; 
   muted: boolean;
@@ -77,6 +77,17 @@ interface ControlProps {
 ```
 
 For example you can use seek, duration and progress props to create "+15s skip" Netflix like button.
+
+### Other `<video/>` functions
+If you wish e.g. to add more tracks or use something else that is provided by the `<video/>` component but is not supported in this package (yet), you can do so by utilizing `handle` prop:
+
+```
+const playerHandle = useRef();
+
+<Player handle={playerHandle}/>
+```
+
+Then, you can add subtitles, different audio tracks, etc.
 
 ## 🔜 Improvements 
 
