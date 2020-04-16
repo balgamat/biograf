@@ -1,4 +1,5 @@
-# Video Player 🍿
+# Biograf 🍿
+> A dead-simple video player for React
 
 _Because it usually is nearly impossible to style the available players in a way you need, I decided to create my own that has everything you need or may need exactly how you need it._
 
@@ -6,23 +7,23 @@ _Because it usually is nearly impossible to style the available players in a way
 
 > In the lower right corner you can see some custom controls added to the video.
 
-## Features 🎰 
+##  🎰 Features
 
 #### Universal ControlProps interface 🧮 
 All the properties and methods for controlling the video are available to all the children of the player by cloning. Thanks to this, you don't need to pass props that are irrelevant to the player into it (e.g. reaction counts).
 
-#### Independent controls 🔛 
+#### 🚨 Independent controls 
 Thanks to detaching the controls via the interface, you can modify the provided controls and their order however you like. They get lined up with proper padding and margins in the control strip of the video, but you can also use absolute positioning and create whatever other overlays you wish. All components passed as children have access to control props (such as play, pause, etc.)
 
 The controls available are:
 
 - ⏯️ play/pause toggle
 - 🔉 volume control (mute/unmute on click, slider appears on hover, then you can control the volume with mouse wheel or by clicking the slider)
-- 💻 fullscreen toggle
+- 🖥 fullscreen toggle
 - 🕐 time display (clicking on it you can switch between elapsed/remaining)
-- 📊 progress bar (with seeking function)
+- ☄️ progress bar (with seeking function)
 
-## Implementation
+## 👨‍💻 Implementation
 
 ### Get Started
 Implementing video has never been simpler:
@@ -46,7 +47,7 @@ import { Player, PlayToggle, Volume, Time, } from 'biograf';
 </Player>
 ```
 
-### Styling
+### 🎨 Styling 
 As `styled-components` are used, you can change the basic colors by using a theme that defines key `biograf` where you can add these keys to alter the corresponding colors:
 
 - **PrimaryColor**    Color of text.
