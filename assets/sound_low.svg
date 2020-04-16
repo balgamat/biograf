@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="sound_low">
+    <path id="Tvar_1770" data-name="Tvar 1770" class="cls-1" d="M452,308a4,4,0,0,0-2.221-3.577v7.158A4.006,4.006,0,0,0,452,308Zm-12-2.665v5.33h3.554L448,315.109V300.891l-4.446,4.444H440Z" transform="translate(-430 -290)"/>
+  </g>
+</svg>

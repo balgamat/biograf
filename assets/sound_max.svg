@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="sound_max">
+    <path id="Tvar_1770" data-name="Tvar 1770" class="cls-1" d="M452,222a4,4,0,0,0-2.221-3.577v7.158A4.006,4.006,0,0,0,452,222Zm-12-2.665v5.33h3.554L448,229.109V214.891l-4.446,4.444H440Zm9.779-5.127v1.837a6.211,6.211,0,0,1,0,11.91v1.837A7.99,7.99,0,0,0,449.779,214.208Z" transform="translate(-430 -204)"/>
+  </g>
+</svg>

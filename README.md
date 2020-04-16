@@ -1,8 +1,10 @@
 # Video Player 🍿
 
-> Because it would be nearly impossible to style the available players in a way we need, I decided to create our own that has everything we need or may need exactly how we need it.
+_Because it usually is nearly impossible to style the available players in a way you need, I decided to create my own that has everything you need or may need exactly how you need it._
 
-<img width="810" alt="Snímek obrazovky 2020-04-16 v 10 31 30" src="https://user-images.githubusercontent.com/6381607/79433505-7d928900-7fcd-11ea-8b95-eaea4894ef5b.png">
+<img width="810" alt="Preview" src="https://user-images.githubusercontent.com/6381607/79433505-7d928900-7fcd-11ea-8b95-eaea4894ef5b.png">
+
+> In the lower right corner you can see some custom controls added to the video.
 
 ## Features 🎰 
 
@@ -35,18 +37,25 @@ However, this would be really simple player. To make it more interesting, you ca
 ```
 To add some controls you can add them as children to the player (note that you can choose whatever order you'd like:
 ```
-import { PlayToggle } from '@VideoPlayer/Controls/PlayToggle';
-import { Volume } from '@VideoPlayer/Controls/Volume';
-import { Time } from '@VideoPlayer/Controls/Time';
+import { Player, PlayToggle, Volume, Time, } from 'biograf';
 
-<Player src={[videoURL]} preload="meta" autoplay muted>
+<Player src={[videoURL]} preload="meta" muted>
   <Time/>
   <PlayToggle/>
   <Volume/>
 </Player>
 ```
 
-### Your own controls
+### Styling
+As `styled-components` are used, you can change the basic colors by using a theme that defines key `biograf` where you can add these keys to alter the corresponding colors:
+
+- **PrimaryColor**    Color of text.
+- **ControlsBackground**    Background color of the control buttons.
+- **ControlsBackgroundOnHover**    Background color of the control buttons on hover.
+
+If that is not enough (it might not be), feel free to create your own controls just the way you like 'em.
+
+### Custom controls
 To implement your own controls, simply create component that accepts `controlProps: ControlProps` as its prop. This will get passed to the component via the player itself, you just create the component and pass it as a child to the Player. The interface is defined as following:
 ```
 interface ControlProps {
