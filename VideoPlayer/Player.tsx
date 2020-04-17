@@ -1,6 +1,14 @@
-import 'fullscreen-polyfill';
-import React, { FC, ReactElement, RefObject, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
+import "fullscreen-polyfill";
+import React, {
+  FC,
+  ReactElement,
+  RefObject,
+  useEffect,
+  useRef,
+  useState
+} from "react";
+import styled from "styled-components";
+import { Controls } from "./Controls";
 
 export type MandatoryAttributes<T> = Record<string, any> & T;
 export type PlayerProps = MandatoryAttributes<{
@@ -48,7 +56,7 @@ export const Player: FC<PlayerProps> = ({ children, src, handle, ...rest }) => {
     if (playback?.current) {
       playback.current.currentTime = Math.max(
         0,
-        Math.min(progress * duration, duration),
+        Math.min(progress * duration, duration)
       );
     }
   };
@@ -61,7 +69,7 @@ export const Player: FC<PlayerProps> = ({ children, src, handle, ...rest }) => {
     fullscreen
       ? document.exitFullscreen()
       : container?.current?.requestFullscreen();
-  const togglePlay = () => playback?.current?.[isPlaying ? 'pause' : 'play']();
+  const togglePlay = () => playback?.current?.[isPlaying ? "pause" : "play"]();
 
   const controlProps: ControlProps = {
     duration,
@@ -75,7 +83,7 @@ export const Player: FC<PlayerProps> = ({ children, src, handle, ...rest }) => {
     setVolume,
     toggleFullscreen,
     togglePlay,
-    volume,
+    volume
   };
 
   useEffect(() => {
@@ -89,23 +97,23 @@ export const Player: FC<PlayerProps> = ({ children, src, handle, ...rest }) => {
       saveVolume(playback?.current?.volume);
     };
 
-    container?.current?.addEventListener('fullscreenchange', updateFullscreen);
-    playback?.current?.addEventListener('durationchange', updateDuration);
-    playback?.current?.addEventListener('pause', setPause);
-    playback?.current?.addEventListener('play', setPlay);
-    playback?.current?.addEventListener('timeupdate', updateTime);
-    playback?.current?.addEventListener('volumechange', updateVolume);
+    container?.current?.addEventListener("fullscreenchange", updateFullscreen);
+    playback?.current?.addEventListener("durationchange", updateDuration);
+    playback?.current?.addEventListener("pause", setPause);
+    playback?.current?.addEventListener("play", setPlay);
+    playback?.current?.addEventListener("timeupdate", updateTime);
+    playback?.current?.addEventListener("volumechange", updateVolume);
 
     return () => {
       container?.current?.removeEventListener(
-        'fullscreenchange',
-        updateFullscreen,
+        "fullscreenchange",
+        updateFullscreen
       );
-      playback?.current?.removeEventListener('durationchange', updateDuration);
-      playback?.current?.removeEventListener('pause', setPause);
-      playback?.current?.removeEventListener('play', setPlay);
-      playback?.current?.removeEventListener('timeupdate', updateTime);
-      playback?.current?.removeEventListener('volumechange', updateVolume);
+      playback?.current?.removeEventListener("durationchange", updateDuration);
+      playback?.current?.removeEventListener("pause", setPause);
+      playback?.current?.removeEventListener("play", setPlay);
+      playback?.current?.removeEventListener("timeupdate", updateTime);
+      playback?.current?.removeEventListener("volumechange", updateVolume);
     };
   }, [playback, container]);
 
@@ -119,11 +127,12 @@ export const Player: FC<PlayerProps> = ({ children, src, handle, ...rest }) => {
         src={src}
         {...rest}
       />
-      <Controls>
-        {React.Children.map(children, (child) =>
-          React.cloneElement(child as ReactElement, { controlProps }),
-        )}
-      </Controls>
+      {React.Children.map(children, child =>
+        React.cloneElement(
+          child as ReactElement,
+          (child as ReactElement)?.type === Controls ? { controlProps } : {}
+        )
+      )}
     </Container>
   );
 };
@@ -132,24 +141,5 @@ export const Container = styled.div`
   background: black;
   height: 100%;
   position: relative;
-  width: 100%;
-`;
-
-export const Controls = styled.div`
-  & > * {
-    margin-left: 10px;
-  }
-  & > *:nth-child(1) {
-    margin-left: 0;
-  }
-  & > .progressBar {
-    padding: 0 20px 0 10px;
-  }
-
-  bottom: 0;
-  display: flex;
-  flex-direction: row;
-  padding: 19px;
-  position: absolute;
   width: 100%;
 `;

@@ -13,7 +13,7 @@ _Because it usually is nearly impossible to style the available players in a way
 All the properties and methods for controlling the video are available to all the children of the player by cloning. Thanks to this, you don't need to pass props that are irrelevant to the player into it (e.g. reaction counts).
 
 #### 🚨 Independent controls 
-Thanks to detaching the controls via the interface, you can modify the provided controls and their order however you like. They get lined up with proper padding and margins in the control strip of the video, but you can also use absolute positioning and create whatever other overlays you wish. All components passed as children have access to control props (such as play, pause, etc.)
+Thanks to detaching the controls via the interface, you can modify the provided controls and their order however you like. They get lined up with proper padding and margins in the control strip of the video, but you can also use absolute positioning and create whatever other overlays you wish. All components passed as children to the `Controls` component have access to control props (such as play, pause, etc.)
 
 The controls available are:
 
@@ -24,6 +24,11 @@ The controls available are:
 - ☄️ progress bar (with seeking function) **ProgressBar**
 
 ## 👨‍💻 Implementation
+
+### Installation
+To install, install `biograf` npm package and make sure you have it's peer dependencies:
+
+```yarn add biograf react react-dom framer-motion styled-components```
 
 ### Get Started
 Implementing video has never been simpler:
@@ -36,14 +41,16 @@ However, this would be really simple player. To make it more interesting, you ca
 ```
 <Player src={[videoURL]} preload="meta" autoplay muted/>
 ```
-To add some controls you can add them as children to the player (note that you can choose whatever order you'd like:
+To add some controls you can add them as children to the `Controls` component (note that you can choose whatever order you'd like:
 ```
-import { Player, PlayToggle, Volume, Time, } from 'biograf';
+import { Player, PlayToggle, Volume, Time, Controls } from 'biograf';
 
 <Player src={[videoURL]} preload="meta" muted>
-  <Time/>
-  <PlayToggle/>
-  <Volume/>
+  <Controls>
+    <Time/>
+    <PlayToggle/>
+    <Volume/>
+  </Controls>
 </Player>
 ```
 
@@ -57,7 +64,7 @@ As `styled-components` are used, you can change the basic colors by using a them
 If that is not enough (it might not be), feel free to create your own controls just the way you like 'em.
 
 ### Custom controls
-To implement your own controls, simply create a component that accepts `controlProps: ControlProps` as its prop. This will get passed to the component via the player itself, you just create the component and pass it as a child to the Player. The interface is defined as following:
+To implement your own controls, simply create a component that accepts `controlProps: ControlProps` as its prop. This will get passed to the component via the `Controls` component, you just create the component and pass it as a child to the `Controls`. The interface is defined as following:
 ```
 interface ControlProps {
   duration: number; // in seconds

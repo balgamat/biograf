@@ -1,6 +1,6 @@
 {
   "name": "biograf",
-  "version": "1.0.4",
+  "version": "2.0.1",
   "description": "A dead-simple customizable React video player.",
   "main": "index.js",
   "scripts": {
@@ -35,12 +35,12 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "framer-motion": "^1.10.3",
-    "fullscreen-polyfill": "^1.0.2",
-    "styled-components": "^5.1.0"
+    "fullscreen-polyfill": "^1.0.2"
   },
   "peerDependencies": {
+    "framer-motion": "^1.10.3",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.0"
   }
 }

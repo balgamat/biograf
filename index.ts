@@ -1,7 +1,7 @@
+import { Controls } from "./VideoPlayer/Controls";
 import { ControlButton } from "./VideoPlayer/Controls/ControlButton";
 import {
   Container,
-  Controls,
   ControlProps,
   Player
 } from "./VideoPlayer/Player";
@@ -13,7 +13,7 @@ import { Volume } from "./VideoPlayer/Controls/Volume/Volume";
 
 export {
   Container as PlayerContainer,
-  Controls as ControlStrip,
+  Controls,
   ControlButton,
   ControlProps,
   FullScreenToggle,
