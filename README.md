@@ -21,6 +21,7 @@ The controls available are:
 - 🔉 volume control **Volume** (mute/unmute on click, slider appears on hover, then you can control the volume with mouse wheel or by clicking the slider)
 - 🖥 fullscreen toggle **FullScreenToggle**
 - 🕐 time display (clicking on it you can switch between elapsed/remaining) **Time**
+- 🕐 elapsed time (when keeping things simple) **ElapsedTime**
 - ☄️ progress bar (with seeking function) **ProgressBar**
 
 ## 👨‍💻 Implementation

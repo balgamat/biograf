@@ -4,6 +4,7 @@ import React, {
   ReactElement,
   RefObject,
   useEffect,
+  useImperativeHandle,
   useRef,
   useState
 } from "react";
@@ -13,7 +14,7 @@ import { Controls } from "./Controls";
 export type MandatoryAttributes<T> = Record<string, any> & T;
 export type PlayerProps = MandatoryAttributes<{
   src?: string;
-  handle?: RefObject<any>;
+  handle?: RefObject<HTMLVideoElement>;
 }>;
 
 export interface ControlProps {
@@ -37,8 +38,10 @@ export type ControlComponent<T extends keyof ControlProps> = FC<{
 }>;
 
 export const Player: FC<PlayerProps> = ({ children, src, handle, ...rest }) => {
-  const playback = handle || useRef<any>();
+  const playback = useRef<any>();
   const container = useRef<any>();
+
+  useImperativeHandle(handle, () => playback.current);
 
   const [duration, saveDuration] = useState(0);
   const [elapsed, saveElapsed] = useState(0);
@@ -118,7 +121,7 @@ export const Player: FC<PlayerProps> = ({ children, src, handle, ...rest }) => {
   }, [playback, container]);
 
   return (
-    <Container ref={container}>
+    <Container className={"biograf-container"} ref={container}>
       <video
         ref={playback}
         preload="auto"
