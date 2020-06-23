@@ -56,7 +56,7 @@ export const Knob = styled.div<{ progress: number }>`
 const Bar = styled.div<{ progress: number }>`
   background: ${({ theme, progress }) =>
     css`linear-gradient(to top,
-      ${hex2rgba(theme?.biograf?.PrimaryColor, 1)} ${progress * 100}%,${hex2rgba(
+      ${hex2rgba(theme?.biograf?.PrimaryColor || '#ffffff', 1)} ${progress * 100}%,${hex2rgba(
       theme?.biograf?.PrimaryColor || '#ffffff',
       0.2
     )} ${progress * 100}% )`};
