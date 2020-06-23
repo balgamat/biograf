@@ -1,4 +1,4 @@
-import "fullscreen-polyfill";
+import "fullscreen-api-polyfill";
 import React, {
   FC,
   ReactElement,

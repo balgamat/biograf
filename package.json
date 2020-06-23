@@ -1,6 +1,6 @@
 {
   "name": "biograf",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "A dead-simple customizable React video player.",
   "main": "index.js",
   "scripts": {
@@ -32,7 +32,8 @@
   "homepage": "https://github.com/balgamat/biograf#readme",
   "devDependencies": {
     "@types/styled-components": "^5.1.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "framer-motion": "^1.10.3"
   },
   "dependencies": {
     "fullscreen-api-polyfill": "^1.1.2"
